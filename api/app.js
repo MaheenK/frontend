@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
 const { mongoose } = require('./database/mongoose');
 
@@ -6,9 +7,11 @@ const parser = require('body-parser');
 
 const { list, Task } = require('./database/models');
 
+const port = 3000
+app.set('port', port);
 
 app.use(parser.json());
-
+app.use(cors());
 app.get('/lists', (req, res) => {
     list.find({}).then((lists) => { res.send(lists) });
 });
