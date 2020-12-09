@@ -4,19 +4,17 @@ import { TaskService } from 'src/app/task.service';
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
-  styleUrls: ['./new-list.component.scss']
+  styleUrls: ['./new-list.component.scss'],
 })
 export class NewListComponent implements OnInit {
+  constructor(private taskservice: TaskService) {}
 
-  constructor(private taskservice: TaskService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  createlist(title: string){
+  createlist(title: string) {
     this.taskservice.createlist(title).subscribe((response: any) => {
       console.log(response);
+      //navigate to /lists/response._id
     });
   }
-
 }

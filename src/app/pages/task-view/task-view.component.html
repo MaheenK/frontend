@@ -5,24 +5,9 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item is-active">
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists',list._id]" routerLinkActive="is-active">
                     <p>
-                        List 1
-                    </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>
-                        List 1
-                    </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>
-                        List 1
-                    </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>
-                        List 1
+                        {{list.title}}
                     </p>
                 </a>
             </div>
@@ -33,12 +18,10 @@
                 Tasks
             </h1>
             <!-- Task elements -->
-            <div class="task">
-                <p> This is smth I have to do doddodkfhbjabfsfi jfheiaiaoaioai</p>
+            <div class="task" *ngFor="let task of tasks">
+                <p> {{task.title}}</p>
             </div>
-            <div class="task complete">
-                <p> This is smth I have to do</p>
-            </div>
+<button class="circle-add-button button is-primary">+</button>
         </div>
     </div>
 </div>

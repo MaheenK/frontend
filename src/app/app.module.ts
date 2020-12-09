@@ -8,18 +8,9 @@ import { TaskViewComponent } from './pages/task-view/task-view.component';
 import { NewListComponent } from './pages/new-list/new-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskViewComponent,
-    NewListComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-
-  ],
+  declarations: [AppComponent, TaskViewComponent, NewListComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

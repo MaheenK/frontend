@@ -23,6 +23,7 @@
   border-bottom-left-radius: 8px;
 }
 .task-list-container {
+  position: relative;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -71,4 +72,15 @@
     text-decoration: line-through;
     opacity: 0.8;
   }
+}
+.circle-add-button {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  font-size: larger;
+  align-items: center;
 }
