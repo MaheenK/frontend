@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebrequestService {
   readonly root_url;
   constructor(private http: HttpClient) {
-    this.root_url = 'http://localhost:3000'
+    this.root_url = 'http://localhost:3000';
   }
 
   get(url: string) {
@@ -27,12 +27,27 @@ export class WebrequestService {
   }
 
   login(email: string, password: string) {
-    return this.http.post(`${this.root_url}/users/login`, {
-      email,
-      password
-    }, {
-        observe: 'response'
-      });
+    return this.http.post(
+      `${this.root_url}/users/login`,
+      {
+        email,
+        password,
+      },
+      {
+        observe: 'response',
+      }
+    );
   }
-
+  signup(email: string, password: string) {
+    return this.http.post(
+      `${this.root_url}/users`,
+      {
+        email,
+        password,
+      },
+      {
+        observe: 'response',
+      }
+    );
+  }
 }

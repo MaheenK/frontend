@@ -1,9 +1,15 @@
 //for global styles and changing variable values
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700");
-$turquoise: #44ddd0;
-$green: #27d7a1;
-$light-green: #45f69e;
-$dark-green: rgb(0, 100, 80);
+
+$turquoise: #cd5c5c;
+$green: #ffa07a;
+$light-green: #fadfdf;
+$dark-green: #996675;
+
+// $turquoise: #44ddd0;
+// $green: #27d7a1;
+// $light-green: #45f69e;
+// $dark-green: rgb(0, 100, 80);
 
 $light: #f8f8f8;
 $family-sans-serif: "Nunito", sans-serif;
@@ -46,4 +52,9 @@ body {
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+.white-box {
+  padding: 35px;
+  background: white;
+  border-radius: 5px;
 }
