@@ -11,7 +11,20 @@ const port = 3000
 app.set('port', port);
 
 app.use(parser.json());
-app.use(cors());
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
+
+    res.header(
+        'Access-Control-Expose-Headers',
+        'x-access-token, x-refresh-token'
+    );
+
+    next();
+});
+
 app.get('/lists', (req, res) => {
     list.find({}).then((lists) => { res.send(lists) });
 });
@@ -30,7 +43,7 @@ app.patch('/lists/:id', (req, res) => {
     list.findOneAndUpdate({ _id: req.params.id }, {
         $set: req.body
     }).then(() => {
-        res.sendStatus(200);
+        res.send({ message: 'updated successfully' });
     });
 });
 
@@ -59,7 +72,7 @@ app.patch('/lists/:listid/tasks/:taskid', (req, res) => {
     Task.findOneAndUpdate({ _id: req.params.taskid, _listid: req.params.listid }, {
         $set: req.body
     }).then(() => {
-        res.sendStatus(200);
+        res.send({ message: 'updated successfully' });
     });
 });
 
@@ -81,3 +94,4 @@ app.get('/lists/:listid/tasks/:taskid', (req, res) => {
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
+

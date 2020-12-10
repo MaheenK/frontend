@@ -1,6 +1,5 @@
-const { strict } = require('assert');
 const mongoose = require('mongoose');
-const { stringify } = require('querystring');
+
 
 const taskschema = new mongoose.Schema({
     title: {
@@ -12,6 +11,10 @@ const taskschema = new mongoose.Schema({
     _listid: {
         type: mongoose.Types.ObjectId,
         required: true,
+    },
+    completed: {
+        type: Boolean,
+        default: false
     }
 });
 

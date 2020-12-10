@@ -1,6 +1,4 @@
-const { strict } = require('assert');
 const mongoose = require('mongoose');
-const { stringify } = require('querystring');
 
 const listschema = new mongoose.Schema({
     title: {
