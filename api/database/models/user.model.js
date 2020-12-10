@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 // JWT Secret
 const jwtSecret = "51778657246321226641fsdklafjasdkljfsklfjd7148924065";
 
+
 const UserSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -43,6 +44,11 @@ UserSchema.methods.toJSON = function () {
     // return the document except the password and sessions (these shouldn't be made available)
     return _.omit(userObject, ['password', 'sessions']);
 }
+
+UserSchema.statics.getJWTSecret = () => {
+    return jwtSecret;
+}
+
 
 UserSchema.methods.generateAccessAuthToken = function () {
     const user = this;
@@ -286,7 +292,7 @@ module.exports = { User }
 //                     reject();
 //                 }
 //             })
-        
+
 //         })
 //     })
 // }

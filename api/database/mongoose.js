@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost:27017/TaskManager', {
-    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
+    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true
 }).then(() => {
-    console.log('connected to mongoDB');
-}).catch((e) => {
-    console.log('Error! Could not connect to mongoDB');
-    console.log(e);
-});
+        console.log('connected to mongoDB');
+    }).catch((e) => {
+        console.log('Error! Could not connect to mongoDB');
+        console.log(e);
+    });
 
 
 module.exports = {

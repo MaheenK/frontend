@@ -18,7 +18,7 @@ export class TaskViewComponent implements OnInit {
     private taskservice: TaskService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
