@@ -18,14 +18,19 @@ export class TaskViewComponent implements OnInit {
     private taskservice: TaskService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.taskservice.getTasks(params.listid).subscribe((tasks: any) => {
-        this.tasks = tasks;
-      });
+      if (params.listid) {
+        this.taskservice.getTasks(params.listid).subscribe((tasks: any) => {
+          this.tasks = tasks;
+        });
+      } else {
+        this.tasks = undefined;
+      }
     });
+
     this.taskservice.getLists().subscribe((lists: any) => {
       this.lists = lists;
     });
@@ -35,7 +40,7 @@ export class TaskViewComponent implements OnInit {
     // we want to set the task to completed
     this.taskservice.complete(task).subscribe(() => {
       // the task has been set to completed successfully
-      console.log("Completed successully!");
-    })
+      console.log('Completed successully!');
+    });
   }
 }

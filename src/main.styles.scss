@@ -33,7 +33,7 @@ body {
   height: 100%;
 }
 
-.modal-box{
+.modal-box {
   min-height: 200px;
   width: 100%;
   max-width: 580px;
@@ -41,5 +41,9 @@ body {
   border-radius: 5px;
   padding: 35px;
 }
-
-
+.title {
+  font-family: "Lato";
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
