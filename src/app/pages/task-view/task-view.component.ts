@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class TaskViewComponent implements OnInit {
   lists: any;
   tasks: any;
+  selectedlist_id: string;
 
   constructor(
     private taskservice: TaskService,
@@ -23,6 +24,7 @@ export class TaskViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       if (params.listid) {
+        this.selectedlist_id = params.listid;
         this.taskservice.getTasks(params.listid).subscribe((tasks: any) => {
           this.tasks = tasks;
         });
@@ -36,11 +38,28 @@ export class TaskViewComponent implements OnInit {
     });
   }
 
-  ontaskclick(task: Task) {
+  onTaskClick(task: any) {
     // we want to set the task to completed
     this.taskservice.complete(task).subscribe(() => {
       // the task has been set to completed successfully
-      console.log('Completed successully!');
-    });
+      console.log("Completed successully!");
+      task.completed = true;
+      console.log(task);
+
+    })
+  }
+
+  Ondeletelist() {
+    this.taskservice.deletelist(this.selectedlist_id).subscribe((res: any) => {
+      this.router.navigate(['/lists'])
+      console.log(res);
+    })
+  }
+
+  ontaskdelete(id: string) {
+    this.taskservice.deletetask(this.selectedlist_id, id).subscribe((res: any) => {
+      this.tasks = this.tasks.filter((val: any) => val._id !== id);
+      console.log(res);
+    })
   }
 }

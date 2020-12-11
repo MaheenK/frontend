@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { WebreqinceptorService } from './webreq.inceptor.service';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { EditListComponent } from './pages/edit-list/edit-list.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     NewTaskComponent,
     LoginPageComponent,
     SignupPageComponent,
+    EditListComponent,
+    EditTaskComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [
@@ -31,4 +35,4 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

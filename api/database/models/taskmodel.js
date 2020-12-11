@@ -11,6 +11,7 @@ const taskschema = new mongoose.Schema({
     _listid: {
         type: mongoose.Types.ObjectId,
         required: true,
+        trim: true
     },
     completed: {
         type: Boolean,

@@ -167,8 +167,8 @@ app.patch('/lists/:listid/tasks/:taskid', authenticate, (req, res) => {
     list.findOne({
         _id: req.params.listid,
         _userid: req.user_id
-    }).then((list) => {
-        if (list) {
+    }).then((t) => {
+        if (t) {
             return true;
         }
         return false;
@@ -192,8 +192,8 @@ app.delete('/lists/:listid/tasks/:taskid', authenticate, (req, res) => {
     list.findOne({
         _id: req.params.listid,
         _userid: req.user_id
-    }).then((list) => {
-        if (list) {
+    }).then((t) => {
+        if (t) {
             return true;
         }
         return false;
@@ -206,7 +206,7 @@ app.delete('/lists/:listid/tasks/:taskid', authenticate, (req, res) => {
         else {
             res.sendStatus(404);
         }
-    })
+    });
 });
 
 
