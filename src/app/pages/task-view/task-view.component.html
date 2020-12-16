@@ -47,8 +47,8 @@
         <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)"
           [ngClass]="{ 'completed': task.completed }">
           <input type="checkbox" id="todo" name="todo" value="todo">
-          <div class="task-text" >
-            <p for="todo" data-content="Get out of bed"> {{task.title}}</p>
+          <div class="task-text"  for="todo" data-content="Get out of bed" >
+            <p> {{task.title}}</p>
           </div>
           <div class="task-buttons">
             <button class="button" [routerLink]="['/lists', selectedlist_id, 'edit-task', task._id]">
