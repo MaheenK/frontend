@@ -136,7 +136,6 @@ app.get('/lists/:listid/tasks', authenticate, (req, res) => {
 });
 
 app.post('/lists/:listid/tasks', authenticate, (req, res) => {
-
     list.findOne({
         _id: req.params.listid,
         _userid: req.user_id
@@ -167,8 +166,8 @@ app.patch('/lists/:listid/tasks/:taskid', authenticate, (req, res) => {
     list.findOne({
         _id: req.params.listid,
         _userid: req.user_id
-    }).then((t) => {
-        if (t) {
+    }).then((list) => {
+        if (list) {
             return true;
         }
         return false;
@@ -192,8 +191,8 @@ app.delete('/lists/:listid/tasks/:taskid', authenticate, (req, res) => {
     list.findOne({
         _id: req.params.listid,
         _userid: req.user_id
-    }).then((t) => {
-        if (t) {
+    }).then((list) => {
+        if (list) {
             return true;
         }
         return false;

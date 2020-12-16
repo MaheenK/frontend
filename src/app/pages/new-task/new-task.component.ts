@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 import { WebrequestService } from 'src/app/webrequest.service';
 import { CommonModule } from '@angular/common';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-new-task',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class NewTaskComponent implements OnInit {
 
-  constructor(private taskservice: TaskService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private taskservice: TaskService, private route: ActivatedRoute, private router: Router) { }
 
   listid: string;
 
@@ -24,9 +25,9 @@ export class NewTaskComponent implements OnInit {
   }
 
   createtask(title: string) {
-    this.taskservice.createtask(title, this.listid).subscribe((newtask: any) => {
+    this.taskservice.createtask(title, this.listid).subscribe((newTask: Object) => {
       this.router.navigate(['../'], { relativeTo: this.route });
-    });
+    })
   }
 
 }
